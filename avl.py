@@ -43,7 +43,11 @@ class AVL:
                 node.left = self.rotateLeft(node.left)
                 node = self.rotateRight(node)
 
-        self.root = node
+        if node.parent is None:
+            self.root = node
+
+        else:
+            node.parent = node
 
         return node
 
